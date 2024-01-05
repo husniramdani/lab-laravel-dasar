@@ -16,3 +16,23 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/profile', function () {
+  return "This is profile page";
+});
+
+Route::redirect("/youtube", "/profile");
+
+Route::fallback(function () {
+  return "404";
+});
+
+Route::view('/hello', 'hello', ['name'=> 'Husni']);
+
+Route::get('/hello-again', function(){
+  return view('hello', ['name'=> 'again Husni']);
+});
+
+Route::get('/hello-world', function () {
+  return View('hello.world', ['name'=> 'Husni']);
+});
